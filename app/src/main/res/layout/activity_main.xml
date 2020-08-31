@@ -47,10 +47,10 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginEnd="120dp"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginEnd="110dp"
                     android:paddingStart="10dp"
-                    android:text="@string/default_temp"
+                    android:text="@{viewmodel._Current.main.temp.toString() + `˚`}"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textAlignment="center"
                     android:fontFamily="@font/barlow_regular"
@@ -69,7 +69,7 @@
                     android:layout_above="@+id/bottom_layout"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="100dp"
-                    android:layout_marginBottom="-265dp">
+                    android:layout_marginBottom="-230dp">
 
                     <ImageView
                         android:id="@+id/pressure_img"
@@ -87,7 +87,8 @@
                         android:layout_below="@+id/pressure_img"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/barlow_medium"
-                        android:text="@string/default_mbar"
+                        android:text="@{viewmodel._Current.main.pressure.toString()+ `mBar`}"
+                        android:textAlignment="center"
                         android:textColor="@color/colorTextPrimaryLightTheme"
                         android:textSize="20sp" />
                     <TextView
@@ -119,7 +120,7 @@
                         android:layout_marginStart="1dp"
                         android:layout_marginEnd="1dp"
                         android:fontFamily="@font/barlow_medium"
-                        android:text="@string/default_percent"
+                        android:text="@{viewmodel._Current.main.humidity.toString() + `%`}"
                         android:textAlignment="center"
                         android:textColor="@color/colorTextPrimaryLightTheme"
                         android:textSize="20sp" />
@@ -150,10 +151,10 @@
                         android:layout_below="@id/wind_img"
                         android:layout_alignStart="@id/wind_img"
                         android:layout_alignEnd="@id/wind_img"
-                        android:layout_marginStart="-10dp"
-                        android:layout_marginEnd="-10dp"
+                        android:layout_marginStart="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:fontFamily="@font/barlow_medium"
-                        android:text="@string/default_wind"
+                        android:text="@{viewmodel._Current.wind.speed.toString() + `km/H`}"
                         android:textAlignment="center"
                         android:textColor="@color/colorTextPrimaryLightTheme"
                         android:textSize="20sp" />
@@ -175,10 +176,8 @@
                 android:id="@+id/bottom_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="276dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginTop="240dp">
 
                 <ImageView
                     android:id="@+id/daytime_img"
@@ -205,12 +204,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/dautime_input"
-                    android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="-5dp"
-                    android:layout_marginBottom="-1dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@string/daytime"/>
+                    android:text="@string/daytime" />
 
 
                 <ImageView
@@ -232,7 +229,7 @@
                     android:layout_marginStart="-6dp"
                     android:layout_marginEnd="-6dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@string/default_sunrise"
+                    android:text="@{viewmodel._sunrise}"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textSize="20sp" />
@@ -243,9 +240,7 @@
                     android:layout_below="@id/sunrise_input"
                     android:layout_alignStart="@id/sunrise_input"
                     android:layout_alignEnd="@id/sunrise_input"
-                    android:layout_alignParentBottom="true"
                     android:layout_marginTop="-5dp"
-                    android:layout_marginBottom="-1dp"
                     android:fontFamily="@font/barlow_medium"
                     android:text="@string/sunrise"
                     android:textAlignment="center"
@@ -271,7 +266,7 @@
                     android:layout_marginStart="-6dp"
                     android:layout_marginEnd="-6dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@string/default_sunset"
+                    android:text="@{viewmodel._sunset}"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textSize="20sp" />
@@ -282,9 +277,7 @@
                     android:layout_below="@id/sunset_input"
                     android:layout_alignStart="@id/sunset_input"
                     android:layout_alignEnd="@id/sunset_input"
-                    android:layout_alignParentBottom="true"
                     android:layout_marginTop="-5dp"
-                    android:layout_marginBottom="-1dp"
                     android:fontFamily="@font/barlow_medium"
                     android:text="@string/sunset"
                     android:textAlignment="center"

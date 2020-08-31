@@ -87,7 +87,7 @@ data class Wind(
 	val deg: Int? = null,
 
 	@field:SerializedName("speed")
-	val speed: Double? = null
+	val speed: Int? = null
 )
 
 data class Clouds(

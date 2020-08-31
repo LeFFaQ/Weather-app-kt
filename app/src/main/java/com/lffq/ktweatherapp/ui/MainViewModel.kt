@@ -35,11 +35,11 @@ class MainViewModel: ViewModel() {
 
     fun sunTimeUnix(item_rise: Int, item_set: Int) {
         //Просчет рассвета
-        Log.d(TAG, "sunRiseUnix: "+ item_rise)
+        Log.d(TAG, "sunRiseUnix: $item_rise")
         // Конвертирование в секунды
         val date = Date(item_rise * 1000L)
         // Форматирование
-        val sdf = SimpleDateFormat("h:mmaa")
+        val sdf = SimpleDateFormat("h:mmaa", Locale.US)
         // даю Временную зону
         val c = Calendar.getInstance()
         sdf.timeZone = c.timeZone
@@ -47,11 +47,11 @@ class MainViewModel: ViewModel() {
         _sunrise.value = formattedDate
 
         //просчет заката
-        Log.d(TAG, "sunRiseUnix: "+ item_set)
+        Log.d(TAG, "sunRiseUnix: $item_set")
         // Конвертирование в секунды
         val datetwo = Date(item_set * 1000L)
         // Форматирование
-        val sdftwo = SimpleDateFormat("h:mmaa")
+        val sdftwo = SimpleDateFormat("h:mmaa", Locale.US)
         // даю Временную зону
         val ctwo = Calendar.getInstance()
         sdftwo.timeZone = ctwo.timeZone
