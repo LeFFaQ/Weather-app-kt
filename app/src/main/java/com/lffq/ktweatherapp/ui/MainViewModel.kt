@@ -1,4 +1,5 @@
 package com.lffq.ktweatherapp.ui
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +17,20 @@ class MainViewModel: ViewModel() {
     var _CurrentTime = MutableLiveData<String>()
     var _sunrise = MutableLiveData<String>()
     var _sunset = MutableLiveData<String>()
+    
+    
+    var mainTemp = MutableLiveData<String>()
+    var maxTemp = MutableLiveData<String>()
+    var minTemp = MutableLiveData<String>()
+    
+    var humidity = MutableLiveData<String>()
+    var pressure = MutableLiveData<String>()
+    var wind = MutableLiveData<String>()
 
+    var daytime = MutableLiveData<String>()
+    var currentTime = MutableLiveData<String>()
+
+    @SuppressLint("CheckResult")
     fun request() {
         SearchRepositoryProvider
             .provideSearchRepository()
@@ -24,16 +38,32 @@ class MainViewModel: ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(io())
             .subscribe ({ result ->
-                _Current.value = result
-                getCurrentDate()
-                result.sys?.sunset?.let { result.sys.sunrise?.let { it1 -> sunTimeUnix(it1, it) } }
+//                _Current.value = result
+//                getCurrentDate()
+//                result.sys?.sunset?.let { result.sys.sunrise?.let { it1 -> sunTimeUnix(it1, it) } }
+
+                if (result != null ) {
+                    mainTemp.value = result.main?.temp.toString()
+                    maxTemp.value = result.main?.tempMax.toString()
+                    minTemp.value = result.main?.tempMin.toString()
+                    humidity.value = result.main?.humidity.toString()
+                    pressure.value = result.main?.pressure.toString()
+                    wind.value = result.wind?.speed.toString()
+                    result.sys?.sunrise.let { sun ->
+                        if (sun != null)
+                        { sunriseDate(sun) }
+                    }
+                    result.sys?.sunset.let { sun ->
+                        if (sun != null)
+                        { sunsetDate(sun) }
+                    }
+                }
                 
             },
-                { error -> error.printStackTrace()})
+                { error -> error.printStackTrace() })
 
     }
-
-    fun sunTimeUnix(item_rise: Int, item_set: Int) {
+     fun sunriseDate(item_rise: Int): String {
         //Просчет рассвета
         Log.d(TAG, "sunRiseUnix: $item_rise")
         // Конвертирование в секунды
@@ -43,28 +73,27 @@ class MainViewModel: ViewModel() {
         // даю Временную зону
         val c = Calendar.getInstance()
         sdf.timeZone = c.timeZone
-        val formattedDate = sdf.format(date)
-        _sunrise.value = formattedDate
-
-        //просчет заката
+        return sdf.format(date)
+    }
+     fun sunsetDate(item_set: Int): String {
+        //Просчет рассвета
         Log.d(TAG, "sunRiseUnix: $item_set")
         // Конвертирование в секунды
-        val datetwo = Date(item_set * 1000L)
+        val date = Date(item_set * 1000L)
         // Форматирование
-        val sdftwo = SimpleDateFormat("h:mmaa", Locale.US)
+        val sdf = SimpleDateFormat("h:mmaa", Locale.US)
         // даю Временную зону
-        val ctwo = Calendar.getInstance()
-        sdftwo.timeZone = ctwo.timeZone
-        val formattedDatetwo = sdftwo.format(date)
-        _sunset.value = formattedDatetwo
-
+        val c = Calendar.getInstance()
+        sdf.timeZone = c.timeZone
+        return sdf.format(date)
     }
 
-    fun getCurrentDate() {
+    fun getCurrentDate(): String {
         val currentDate = Date()
         val dateFormater = SimpleDateFormat("EEEE, d MMM yyyy  |  hh:mmaaa", Locale.US)
-        _CurrentTime.value = dateFormater.format(currentDate)
+        return dateFormater.format(currentDate)
     }
+    
 
 
 }

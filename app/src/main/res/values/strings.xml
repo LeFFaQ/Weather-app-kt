@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">kt Weather app</string>
+    <string name="app_name">Weather app ktx</string>
 
     <!--Описание контента (для инвалидов)-->
     <string name="background_image">background image</string>
@@ -27,7 +27,9 @@
     <string name="default_sunset">7:05 PM</string>
     <string name="default_time">Sunday, 19 May 2019 | 4:30</string>
     <string name="default_sunrise">6:03 AM</string>
-    <string name="default_mbar">1,007mbar</string>
-    <string name="default_wind">23 km/h</string>
-    <string name="default_weather_cond">Cloudy</string>
+    <string name="default_mbar">1,007mBar</string>
+    <string name="default_wind">23 m/s</string>
+    <string name="default_weather_cond">Drizzle</string>
+    <string name="default_min_temp">min: 20˚</string>
+    <string name="default_max_temp">max: 30˚</string>
 </resources>
