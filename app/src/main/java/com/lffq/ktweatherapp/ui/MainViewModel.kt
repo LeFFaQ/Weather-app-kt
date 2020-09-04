@@ -12,11 +12,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainViewModel: ViewModel() {
-
-    var _Current = MutableLiveData<Current>()
-    var _CurrentTime = MutableLiveData<String>()
-    var _sunrise = MutableLiveData<String>()
-    var _sunset = MutableLiveData<String>()
     
     
     var mainTemp = MutableLiveData<String>()
@@ -38,9 +33,6 @@ class MainViewModel: ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(io())
             .subscribe ({ result ->
-//                _Current.value = result
-//                getCurrentDate()
-//                result.sys?.sunset?.let { result.sys.sunrise?.let { it1 -> sunTimeUnix(it1, it) } }
 
                 if (result != null ) {
                     mainTemp.value = result.main?.temp.toString()

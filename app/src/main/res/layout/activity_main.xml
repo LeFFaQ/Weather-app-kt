@@ -148,7 +148,7 @@
                         android:layout_below="@+id/pressure_img"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/barlow_medium"
-                        android:text="@{viewmodel._Current.main.pressure.toString()+ `mBar`}"
+                        android:text="@{viewmodel.pressure+ `mBar`}"
                         android:textAlignment="center"
                         android:textColor="@color/colorTextPrimaryLightTheme"
                         android:textSize="18sp" />
@@ -181,7 +181,7 @@
                         android:layout_marginStart="1dp"
                         android:layout_marginEnd="1dp"
                         android:fontFamily="@font/barlow_medium"
-                        android:text="@{viewmodel._Current.main.humidity.toString() + `%`}"
+                        android:text="@{viewmodel.humidity + `%`}"
                         android:textAlignment="center"
                         android:textColor="@color/colorTextPrimaryLightTheme"
                         android:textSize="18sp" />
@@ -215,7 +215,7 @@
                         android:layout_marginStart="-12dp"
                         android:layout_marginEnd="-12dp"
                         android:fontFamily="@font/barlow_medium"
-                        android:text="@{viewmodel._Current.wind.speed.toString() + `km/H`}"
+                        android:text="@{viewmodel.wind + `m/s`}"
                         android:textAlignment="center"
                         android:textColor="@color/colorTextPrimaryLightTheme"
                         android:textSize="18sp" />
@@ -291,7 +291,7 @@
                     android:layout_marginStart="-6dp"
                     android:layout_marginEnd="-6dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@{viewmodel._sunrise}"
+                    android:text="@{viewmodel.sunriseDate}"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textSize="18sp" />
@@ -328,7 +328,7 @@
                     android:layout_marginStart="-6dp"
                     android:layout_marginEnd="-6dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@{viewmodel._sunset}"
+                    android:text="@{viewmodel.sunsetDate}"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textSize="18sp" />
