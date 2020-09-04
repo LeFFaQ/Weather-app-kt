@@ -1,11 +1,13 @@
 package com.lffq.ktweatherapp.ui
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.graphics.drawable.Drawable
 import android.util.Log
+import androidx.annotation.DrawableRes
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.lffq.ktweatherapp.R
 import com.lffq.ktweatherapp.network.SearchRepositoryProvider
-import com.lffq.ktweatherapp.network.models.Current
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers.io
 import java.text.SimpleDateFormat
@@ -24,6 +26,10 @@ class MainViewModel: ViewModel() {
 
     var daytime = MutableLiveData<String>()
     var currentTime = MutableLiveData<String>()
+    var sunrise = MutableLiveData<String>()
+    var sunset = MutableLiveData<String>()
+
+    var icon = MutableLiveData<Int>()
 
     @SuppressLint("CheckResult")
     fun request() {
@@ -55,7 +61,7 @@ class MainViewModel: ViewModel() {
                 { error -> error.printStackTrace() })
 
     }
-     fun sunriseDate(item_rise: Int): String {
+    fun sunriseDate(item_rise: Int) {
         //Просчет рассвета
         Log.d(TAG, "sunRiseUnix: $item_rise")
         // Конвертирование в секунды
@@ -65,9 +71,9 @@ class MainViewModel: ViewModel() {
         // даю Временную зону
         val c = Calendar.getInstance()
         sdf.timeZone = c.timeZone
-        return sdf.format(date)
+        sunrise.value = sdf.format(date)
     }
-     fun sunsetDate(item_set: Int): String {
+    fun sunsetDate(item_set: Int) {
         //Просчет рассвета
         Log.d(TAG, "sunRiseUnix: $item_set")
         // Конвертирование в секунды
@@ -77,15 +83,21 @@ class MainViewModel: ViewModel() {
         // даю Временную зону
         val c = Calendar.getInstance()
         sdf.timeZone = c.timeZone
-        return sdf.format(date)
+        sunset.value = sdf.format(date)
     }
-
     fun getCurrentDate(): String {
         val currentDate = Date()
         val dateFormater = SimpleDateFormat("EEEE, d MMM yyyy  |  hh:mmaaa", Locale.US)
         return dateFormater.format(currentDate)
     }
-    
+
+    fun weatherIcon(type: String) {
+        when (type) {
+            "Thunderstorm" -> icon.value = R.drawable.swi_thunderstorm
+            "Drizzle" -> icon.value = R.drawable.swi_showers
+            "Rain" -> icon.value = R.drawable.swi_showers
+        }
+    }
 
 
 }

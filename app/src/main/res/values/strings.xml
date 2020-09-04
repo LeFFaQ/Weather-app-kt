@@ -11,6 +11,7 @@
     <string name="pressure_view">mBar</string>
     <string name="max_temp_view">max: </string>
     <string name="min_temp_view">min: </string>
+    <string name="temp_view">˚</string>
 
     <!--Статик-->
     <string name="wind">Wind</string>

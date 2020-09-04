@@ -102,7 +102,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_toEndOf="@+id/temp"
                     android:fontFamily="@font/barlow_extralight"
-                    android:text="@string/default_min_temp"
+                    android:text="@{viewmodel.minTemp}"
                     android:textAlignment="textStart"
                     android:textColor="@color/colorTextAccentLightTheme"
                     android:textSize="16sp"/>
@@ -116,7 +116,7 @@
                     android:layout_marginStart="-100dp"
                     android:layout_toEndOf="@+id/temp"
                     android:fontFamily="@font/barlow_extralight"
-                    android:text="@string/default_max_temp"
+                    android:text="@{viewmodel.maxTemp}"
                     android:textAlignment="textStart"
                     android:textColor="@color/colorTextAccentLightTheme"
                     android:textSize="16sp" />
@@ -291,7 +291,7 @@
                     android:layout_marginStart="-6dp"
                     android:layout_marginEnd="-6dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@{viewmodel.sunriseDate}"
+                    android:text="@{viewmodel.sunrise}"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textSize="18sp" />
@@ -328,7 +328,7 @@
                     android:layout_marginStart="-6dp"
                     android:layout_marginEnd="-6dp"
                     android:fontFamily="@font/barlow_medium"
-                    android:text="@{viewmodel.sunsetDate}"
+                    android:text="@{viewmodel.sunset}"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimaryLightTheme"
                     android:textSize="18sp" />
