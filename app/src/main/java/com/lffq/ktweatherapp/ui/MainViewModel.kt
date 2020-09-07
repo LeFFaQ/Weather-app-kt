@@ -1,21 +1,27 @@
 package com.lffq.ktweatherapp.ui
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.ContentValues.TAG
 import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.annotation.DrawableRes
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lffq.ktweatherapp.R
+import com.lffq.ktweatherapp.location.LocationLiveData
+import com.lffq.ktweatherapp.location.LocationModel
 import com.lffq.ktweatherapp.network.SearchRepositoryProvider
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers.io
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainViewModel: ViewModel() {
-    
-    
+class MainViewModel(application: Application): AndroidViewModel(application) {
+
+    private val locationData = LocationLiveData(application)
+    fun getLocationData() = locationData
+
     var mainTemp = MutableLiveData<String>()
     var maxTemp = MutableLiveData<String>()
     var minTemp = MutableLiveData<String>()

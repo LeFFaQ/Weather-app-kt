@@ -47,6 +47,7 @@ dependencies {
 
 
     //Support library
+    implementation "androidx.activity:activity-ktx:1.1.0"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Retrofit
