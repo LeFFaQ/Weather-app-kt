@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 1)
 
-        
+
 
 
         fun getLocation() {
