@@ -33,4 +33,7 @@
     <string name="default_weather_cond">Drizzle</string>
     <string name="default_min_temp">min: 20˚</string>
     <string name="default_max_temp">max: 30˚</string>
+
+
+    <string name="geo_error">Вы запретили доступ к геолокации, повторить попытку?</string>
 </resources>

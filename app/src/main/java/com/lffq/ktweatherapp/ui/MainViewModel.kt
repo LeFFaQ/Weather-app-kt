@@ -38,10 +38,10 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     var icon = MutableLiveData<Int>()
 
     @SuppressLint("CheckResult")
-    fun request() {
+    fun request(lat: Double, lon: Double) {
         SearchRepositoryProvider
             .provideSearchRepository()
-            .searchUsers("55.", "86.")
+            .searchUsers(lat.toString(), lon.toString())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(io())
             .subscribe ({ result ->
