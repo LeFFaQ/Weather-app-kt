@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewmodel = model
         binding.lifecycleOwner = this
 
-        model.request()
-
+        //model.request()
 
     }
 }
