@@ -9,8 +9,9 @@ import android.widget.Toast
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
-import com.lffq.ktweatherapp.ui.GPS_REQUEST
+//import com.lffq.ktweatherapp.ui.GPS_REQUEST
 
+/*
 class GpsUtils (private val context: Context) {
     private val settingClient: SettingsClient = LocationServices.getSettingsClient(context)
     private val locationSettingsRequest: LocationSettingsRequest?
@@ -55,4 +56,4 @@ class GpsUtils (private val context: Context) {
 
 interface OnGpsListener {
     fun gpsStatus(isGPSEnable: Boolean)
-}
+} */

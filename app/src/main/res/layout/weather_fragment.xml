@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.FragmentWeather">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.lffq.ktweatherapp.ui.MainFragViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorOnPrimary">
+
+        <LinearLayout
+            android:id="@+id/temp_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="96dp"
+            android:gravity="center|bottom">
+            <TextView
+                android:id="@+id/left_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.current.main.tempMax.toString()}"
+                android:theme="@style/Widget.AppCompat.TextView.Temp.Assist"
+                app:drawableRightCompat="@drawable/ic_arrow_down"
+                android:layout_gravity="bottom|center" />
+            <TextView
+                android:id="@+id/center_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:text="@{viewmodel.current.main.temp.toString()}"
+                android:layout_gravity="bottom|center"
+                android:theme="@style/Widget.AppCompat.TextView.Temp.Center" />
+            <TextView
+                android:id="@+id/right_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.current.main.tempMax.toString()}"
+                android:theme="@style/Widget.AppCompat.TextView.Temp.Assist"
+                app:drawableRightCompat="@drawable/ic_arrow_up"
+                android:layout_gravity="bottom|center" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/center_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/temp_ll"
+            android:layout_marginTop="76dp"
+            android:gravity="center|bottom"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wi_cloudy"
+                app:tint="?attr/colorOnSecondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:theme="@style/Widget.AppCompat.TextView.Temp.Assist" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/center_view"
+            android:layout_marginTop="76dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:theme="@style/Widget.AppCompat.TextView.Temp.Assist"
+                app:drawableTopCompat="@drawable/ic_location" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</layout>

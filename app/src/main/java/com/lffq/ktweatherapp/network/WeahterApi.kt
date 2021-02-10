@@ -19,9 +19,6 @@ interface WeahterApi {
         @Query("lang") lang: String = "ru"
     ): Observable<Current>
 
-    /**
-     * Компаньен Фабрика
-     */
     companion object Factory {
 
         fun create(): WeahterApi {

@@ -5,7 +5,8 @@ import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lffq.ktweatherapp.network.SearchRepositoryProvider
+import com.lffq.ktweatherapp.network.SearchBridgeProvider
+import com.lffq.ktweatherapp.network.models.Current
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.text.SimpleDateFormat
@@ -24,17 +25,18 @@ class MainFragViewModel : ViewModel(){
     var daytime = MutableLiveData<String>()
     var currentTime = MutableLiveData<String>()
 
+    var current = MutableLiveData<Current>()
+
     @SuppressLint("CheckResult")
     fun request() {
-        SearchRepositoryProvider
+        SearchBridgeProvider
             .provideSearchRepository()
             .searchUsers("55.", "86.")
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe ({ result ->
-
                 if (result != null ) {
-                    mainTemp.value = result.main?.temp.toString()
+                    /*mainTemp.value = result.main?.temp.toString()
                     maxTemp.value = result.main?.tempMax.toString()
                     minTemp.value = result.main?.tempMin.toString()
                     humidity.value = result.main?.humidity.toString()
@@ -47,7 +49,8 @@ class MainFragViewModel : ViewModel(){
                     result.sys?.sunset.let { sun ->
                         if (sun != null)
                         { sunsetDate(sun) }
-                    }
+                    }*/
+                    current.value = result
                 }
 
             },
